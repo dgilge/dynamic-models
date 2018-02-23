@@ -55,7 +55,7 @@ You can also define methods and inner classes this way:
 
     attrs = {
         'name': models.CharField(max_length=32),
-        '__unicode__': lambda self: '<{}> {}'.fromat(self.id, self.name),
+        '__str__': lambda self: '<{}> {}'.format(self.id, self.name),
         'Meta': type('Meta': (), {'ordering': '-id'}),
         '__module__': 'myapp.models'
     }
