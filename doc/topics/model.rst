@@ -49,6 +49,16 @@ And here is the equivalent class built using ``type()``:
 Any Django model that can be defined in the normal fashion can be
 made using ``type()``.
 
+You can also define methods and inner classes this way:
+
+.. code-block:: python
+
+    attrs = {
+        'name': models.CharField(max_length=32),
+        '__unicode__': lambda self: '<{}> {}'.fromat(self.id, self.name),
+        'Meta': type('Meta': (), {'ordering': '-id'}),
+        '__module__': 'myapp.models'
+    }
 
 Django's model cache
 --------------------
